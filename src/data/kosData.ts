@@ -148,19 +148,19 @@ export const kosPartners: KosItem[] = [
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80",
-        title: "Kamar Tipe Deluxe AC - Bersih & Estetik",
-        category: "kamar"
-      },
-      {
         url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80",
-        title: "Suasana Meja Belajar & Kasur Empuk",
+        title: "Kamar Tidur Bersih & Meja Belajar",
         category: "kamar"
       },
       {
         url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
-        title: "Kamar Mandi Dalam Bersih dengan Shower",
+        title: "Fasilitas Kamar Mandi Dalam Bersih (Shower & Kloset)",
         category: "fasilitas"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80",
+        title: "Suasana Kamar Nyaman & Sirkulasi Udara Baik",
+        category: "kamar"
       },
       {
         url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
@@ -176,9 +176,9 @@ export const kosPartners: KosItem[] = [
     roomTypes: [
       {
         id: "deluxe-ac",
-        name: "Tipe Deluxe AC (Kamar Mandi Dalam)",
-        tagline: "Paling Favorit untuk Mahasiswa PU yang Mengutamakan Kenyamanan & Privasi Maksimal",
-        badge: "Paling Populer ⭐",
+        name: "Kamar dengan Fasilitas Kamar Mandi Dalam",
+        tagline: "Paling Favorit untuk Mahasiswa PU yang Mengutamakan Privasi & Kenyamanan Maksimal",
+        badge: "Kamar Mandi Dalam 🚿",
         priceMonthly: 1350000,
         priceQuarterly: 3900000, // hemat 150rb
         priceSemester: 7500000,  // hemat 600rb
@@ -190,24 +190,23 @@ export const kosPartners: KosItem[] = [
         ac: true,
         bathroomInside: true,
         images: [
-          "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
           "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
-          "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80"
+          "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
+          "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
         ],
         keyFeatures: [
-          "AC Dingin 0.5 PK Hemat Listrik",
           "Kamar Mandi Dalam (Shower + Kloset Duduk)",
-          "Meja Belajar Ergonomis + Kursi Busa",
+          "AC Dingin 0.5 PK Hemat Listrik",
+          "Meja Belajar Ergonomis + Kursi Kerja",
           "Springbed Nyaman + Bantal & Sprei",
           "Lemari Pakaian 2 Pintu dengan Cermin",
           "Jendela Luar & Sirkulasi Udara Segar"
         ],
         roomFacilities: [
+          "Kamar Mandi Pribadi di dalam (Shower & Kloset Duduk)",
           "Kasur Springbed empuk (120x200)",
-          "Pendingin Ruangan (AC)",
-          "Kamar Mandi Pribadi di dalam",
-          "Shower & Kloset Duduk",
-          "Meja Belajar & Kursi Kerja",
+          "Pendingin Ruangan (AC Dingin & Terawat)",
+          "Meja Belajar & Kursi Kerja Mahasiswa",
           "Lemari Pakaian Kayu 2 Pintu",
           "Cermin Rias",
           "Stopkontak dekat tempat tidur & meja",
@@ -217,9 +216,9 @@ export const kosPartners: KosItem[] = [
       },
       {
         id: "standard-ac",
-        name: "Tipe Standard AC (Kamar Mandi Luar)",
+        name: "Kamar AC (Kamar Mandi Luar)",
         tagline: "Pilihan Ekonomis & Sejuk untuk Mahasiswa yang Ingin Hemat Budget Tetap Adem",
-        badge: "Hemat Budget 💡",
+        badge: "Kamar Mandi Luar 💡",
         priceMonthly: 1100000,
         priceQuarterly: 3200000,
         priceSemester: 6200000,
@@ -231,8 +230,8 @@ export const kosPartners: KosItem[] = [
         ac: true,
         bathroomInside: false,
         images: [
-          "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-          "https://images.unsplash.com/photo-1540518614846-7ede433c4550?auto=format&fit=crop&w=1000&q=80"
+          "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80",
+          "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
         ],
         keyFeatures: [
           "AC Dingin & Hemat Energi",

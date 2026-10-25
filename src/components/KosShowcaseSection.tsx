@@ -13,7 +13,8 @@ import {
   BadgePercent,
   CheckCircle2,
   Clock,
-  Navigation
+  Navigation,
+  Bath
 } from 'lucide-react';
 
 interface KosShowcaseProps {
@@ -25,6 +26,12 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
   const [selectedRoomId, setSelectedRoomId] = useState<string>(kos.roomTypes[0].id);
   const [activeGalleryTab, setActiveGalleryTab] = useState<'semua' | 'kamar' | 'fasilitas' | 'lingkungan'>('semua');
   
+  // Track active photo index per room card
+  const [roomActivePhoto, setRoomActivePhoto] = useState<Record<string, number>>({
+    'deluxe-ac': 0,
+    'standard-ac': 0
+  });
+
   // State Kalkulator Sewa
   const [calcRoomId, setCalcRoomId] = useState<string>(kos.roomTypes[0].id);
   const [calcDuration, setCalcDuration] = useState<'1' | '3' | '6' | '12'>('3');
@@ -80,20 +87,20 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
   };
 
   return (
-    <section id="kos-abs" className="py-14 sm:py-20 bg-transparent relative">
+    <section id="tipe-kamar" className="py-14 sm:py-20 bg-transparent relative scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF2EC] text-[#3D6B49] text-xs font-bold mb-3 border border-[#D1E4D6]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#568763]" />
-            <span>Mitra Terverifikasi Kos Connect</span>
+            <span>Katalog Resmi & Harga Terverifikasi</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#423028] tracking-tight">
-            Eksplor <span className="text-[#E0707D]">{kos.name}</span>
+            Pilihan Kamar & Fasilitas <span className="text-[#E0707D]">{kos.name}</span>
           </h2>
           <p className="mt-2.5 text-xs sm:text-sm text-[#755C51] leading-relaxed">
-            {kos.tagline}. Cek foto kamar riil, rincian fasilitas lengkap, serta daftar harga transparan di bawah ini.
+            Semua kamar sudah dilengkapi perabot lengkap siap huni. Tinggal bawa koper setelah pindah dari asrama.
           </p>
 
           {/* Quick Distance Badges */}
@@ -144,195 +151,169 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
           </div>
         )}
 
-        {/* Photo Gallery Grid with Category Filter */}
-        <div className="mb-14">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#423028]">
-                Galeri Foto & Fasilitas {kos.name}
-              </h3>
-              <p className="text-xs text-[#755C51]">
-                Foto riil kamar, ruang komunal, dan lingkungan sekitar
-              </p>
-            </div>
+        {/* CARDS TIPE KAMAR */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-14">
+          {kos.roomTypes.map((room) => {
+            const isSelected = selectedRoomId === room.id;
+            const currentImgIndex = roomActivePhoto[room.id] || 0;
+            const isInsideBath = room.bathroomInside;
 
-            {/* Gallery Category Tabs */}
-            <div className="flex items-center gap-1 p-1 bg-[#FAF3E8] rounded-xl border border-[#EBDAC8] self-start sm:self-auto overflow-x-auto max-w-full">
-              {(['semua', 'kamar', 'fasilitas', 'lingkungan'] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveGalleryTab(tab)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold capitalize transition-all whitespace-nowrap ${
-                    activeGalleryTab === tab
-                      ? 'bg-white text-[#423028] shadow-xs'
-                      : 'text-[#755C51] hover:text-[#423028]'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-            {filteredGallery.map((item, idx) => (
+            return (
               <div
-                key={idx}
-                className="group relative rounded-2xl overflow-hidden border border-[#EBDAC8] bg-white shadow-xs hover:shadow-md transition-all duration-300"
+                key={room.id}
+                className={`rounded-2xl sm:rounded-3xl bg-white border-2 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+                  isSelected
+                    ? 'border-[#E0707D] shadow-md ring-2 ring-[#E0707D]/20'
+                    : 'border-[#EBDAC8] hover:border-[#D8BEA8] shadow-xs'
+                }`}
               >
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#FAF4EB]">
-                  <img
-                    src={item.url}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                <div>
+                  {/* Photo Display with Interactive Thumbnail Switcher */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#FAF4EB]">
+                    <img
+                      src={room.images[currentImgIndex]}
+                      alt={room.name}
+                      className="w-full h-full object-cover transition-all duration-300"
+                    />
+
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[90%] z-10">
+                      {isInsideBath ? (
+                        <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#E0707D] text-white shadow-xs flex items-center gap-1">
+                          <Bath className="w-3 h-3" />
+                          Kamar Mandi Dalam
+                        </span>
+                      ) : (
+                        <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-[#5E4339] text-white shadow-xs">
+                          Kamar Mandi Luar
+                        </span>
+                      )}
+
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#568763] text-white shadow-xs flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3" />
+                        Sisa {room.availableRooms} Kamar
+                      </span>
+                    </div>
+
+                    {/* Interactive Photo Switcher (Bottom Right of Image) */}
+                    <div className="absolute bottom-2.5 right-2.5 z-10 flex items-center gap-1 bg-black/60 backdrop-blur-xs p-1 rounded-lg">
+                      {room.images.map((_, imgIdx) => (
+                        <button
+                          key={imgIdx}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setRoomActivePhoto(prev => ({ ...prev, [room.id]: imgIdx }));
+                          }}
+                          className={`px-2 py-1 rounded text-[10px] font-bold transition-all ${
+                            currentImgIndex === imgIdx
+                              ? 'bg-white text-[#423028]'
+                              : 'text-white/80 hover:text-white'
+                          }`}
+                        >
+                          {imgIdx === 0 ? 'Kamar' : imgIdx === 1 && isInsideBath ? 'K. Mandi' : `Foto ${imgIdx + 1}`}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Room Info Body */}
+                  <div className="p-5 sm:p-6">
+                    
+                    {/* Room Title & Specs */}
+                    <div className="mb-3">
+                      <div className="flex items-center gap-1.5 text-xs text-[#E0707D] font-bold uppercase tracking-wider mb-1">
+                        {isInsideBath ? '🚿 Private En-Suite Bathroom' : '💡 Shared Bathroom Bersih'}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-[#423028] leading-snug">
+                        {room.name}
+                      </h3>
+                      <div className="text-xs text-[#755C51] mt-1">
+                        Ukuran: <strong className="text-[#423028]">{room.size}</strong> • Kasur: <strong className="text-[#423028]">{room.bedType}</strong>
+                      </div>
+                    </div>
+
+                    {/* Price Box */}
+                    <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF3E8] border border-[#EBDAC8] mb-4 flex items-baseline justify-between">
+                      <div>
+                        <div className="text-[11px] text-[#755C51] font-medium">Harga Sewa Bulanan</div>
+                        <div className="text-xl sm:text-2xl font-extrabold text-[#423028]">
+                          {formatRupiah(room.priceMonthly)}
+                          <span className="text-xs font-normal text-[#755C51]"> /bln</span>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-[10px] sm:text-[11px] font-bold text-[#3D6B49] bg-[#EAF2EC] px-2 py-0.5 rounded-md">
+                          Inc. WiFi & Air
+                        </span>
+                        <div className="text-[10px] text-[#755C51] mt-1">
+                          Deposit: {formatRupiah(room.deposit)}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Tagline */}
+                    <p className="text-xs text-[#755C51] mb-4 leading-relaxed">
+                      {room.tagline}
+                    </p>
+
+                    {/* Key Features */}
+                    <div className="mb-4">
+                      <div className="text-xs font-bold uppercase tracking-wider text-[#423028] mb-2">
+                        Fasilitas Kamar:
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                        {room.keyFeatures.map((feat, i) => (
+                          <div
+                            key={i}
+                            className="flex items-center gap-2 text-xs font-medium text-[#423028]"
+                          >
+                            <div className="w-3.5 h-3.5 rounded-full bg-[#EAF2EC] text-[#568763] flex items-center justify-center shrink-0">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            </div>
+                            <span className="truncate">{feat}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Detail Fasilitas Tambahan */}
+                    <div className="pt-3 border-t border-[#F1E4D6]">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#755C51] mb-1.5">
+                        Detail Lengkap:
+                      </div>
+                      <ul className="space-y-1">
+                        {room.roomFacilities.slice(0, 4).map((fac, idx) => (
+                          <li key={idx} className="text-xs text-[#755C51] flex items-start gap-1.5">
+                            <span className="text-[#E0707D]">•</span>
+                            <span>{fac}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                  </div>
                 </div>
-                <div className="p-3 bg-white border-t border-[#F1E4D6] flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#423028] truncate pr-2">
-                    {item.title}
-                  </span>
-                  <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-md bg-[#FAF4EB] text-[#755C51] shrink-0">
-                    {item.category}
-                  </span>
+
+                {/* Card Action Button (Fixed duplicate text bug) */}
+                <div className="p-5 sm:p-6 pt-0">
+                  <button
+                    onClick={() => {
+                      setSelectedRoomId(room.id);
+                      onSelectRoomForBooking(room, '1 Bulan', room.priceMonthly);
+                    }}
+                    className={`w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-xs ${
+                      isSelected
+                        ? 'bg-[#E0707D] hover:bg-[#CF5D6B] text-white shadow-[#E0707D]/25'
+                        : 'bg-[#5E4339] hover:bg-[#423028] text-white'
+                    }`}
+                  >
+                    <span>Pilih & Booking Kamar Ini</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* TIPE KAMAR, FASILITAS & HARGA */}
-        <div id="tipe-kamar" className="pt-4 mb-14 scroll-mt-24">
-          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#E0707D] bg-[#FCECEE] px-3 py-1 rounded-full border border-[#F8C8CE]">
-              Pilihan Kamar Mahasiswa
-            </span>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#423028] mt-2">
-              Tipe Kamar, Fasilitas & Harga
-            </h3>
-            <p className="text-xs sm:text-sm text-[#755C51] mt-1.5">
-              Pilih tipe kamar yang sesuai kebutuhanmu. Seluruh kamar siap huni langsung tanpa ribet bawa perabot.
-            </p>
-          </div>
-
-          {/* Cards Tipe Kamar (Clean non-overlapping layout) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {kos.roomTypes.map((room) => {
-              const isSelected = selectedRoomId === room.id;
-
-              return (
-                <div
-                  key={room.id}
-                  className={`rounded-2xl sm:rounded-3xl bg-white border-2 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
-                    isSelected
-                      ? 'border-[#E0707D] shadow-md ring-2 ring-[#E0707D]/20'
-                      : 'border-[#EBDAC8] hover:border-[#D8BEA8] shadow-xs'
-                  }`}
-                >
-                  <div>
-                    {/* Clean Room Image with non-colliding badges */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#FAF4EB]">
-                      <img
-                        src={room.images[0]}
-                        alt={room.name}
-                        className="w-full h-full object-cover"
-                      />
-                      
-                      {/* Floating Badges (Top only, clean & discreet) */}
-                      <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[90%]">
-                        {room.badge && (
-                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#E0707D] text-white shadow-xs">
-                            {room.badge}
-                          </span>
-                        )}
-                        <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#568763] text-white shadow-xs flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" />
-                          Sisa {room.availableRooms} Kamar
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Room Info Body (Safe from image collision) */}
-                    <div className="p-5 sm:p-6">
-                      
-                      {/* Room Title & Specs */}
-                      <div className="mb-3">
-                        <h4 className="text-lg sm:text-xl font-extrabold text-[#423028]">
-                          {room.name}
-                        </h4>
-                        <div className="text-xs text-[#755C51] mt-0.5">
-                          Ukuran: <strong className="text-[#423028]">{room.size}</strong> • Kasur: <strong className="text-[#423028]">{room.bedType}</strong>
-                        </div>
-                      </div>
-
-                      {/* Price Box */}
-                      <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF3E8] border border-[#EBDAC8] mb-4 flex items-baseline justify-between">
-                        <div>
-                          <div className="text-[11px] text-[#755C51] font-medium">Harga Sewa Bulanan</div>
-                          <div className="text-xl sm:text-2xl font-extrabold text-[#423028]">
-                            {formatRupiah(room.priceMonthly)}
-                            <span className="text-xs font-normal text-[#755C51]"> /bln</span>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[10px] sm:text-[11px] font-bold text-[#3D6B49] bg-[#EAF2EC] px-2 py-0.5 rounded-md">
-                            Inc. WiFi & Air
-                          </span>
-                          <div className="text-[10px] text-[#755C51] mt-1">
-                            Deposit: {formatRupiah(room.deposit)}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Tagline */}
-                      <p className="text-xs text-[#755C51] mb-4 leading-relaxed">
-                        {room.tagline}
-                      </p>
-
-                      {/* Key Features */}
-                      <div className="mb-4">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[#423028] mb-2">
-                          Fasilitas Kamar:
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                          {room.keyFeatures.map((feat, i) => (
-                            <div
-                              key={i}
-                              className="flex items-center gap-2 text-xs font-medium text-[#423028]"
-                            >
-                              <div className="w-3.5 h-3.5 rounded-full bg-[#EAF2EC] text-[#568763] flex items-center justify-center shrink-0">
-                                <Check className="w-2.5 h-2.5 stroke-[3]" />
-                              </div>
-                              <span className="truncate">{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  {/* Card Action */}
-                  <div className="p-5 sm:p-6 pt-0">
-                    <button
-                      onClick={() => {
-                        setSelectedRoomId(room.id);
-                        onSelectRoomForBooking(room, '1 Bulan', room.priceMonthly);
-                      }}
-                      className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-xs ${
-                        isSelected
-                          ? 'bg-[#E0707D] hover:bg-[#CF5D6B] text-white shadow-[#E0707D]/25'
-                          : 'bg-[#5E4339] hover:bg-[#423028] text-white'
-                      }`}
-                    >
-                      <span>Booking Tipe {room.name.split('(')[0]}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+            );
+          })}
         </div>
 
         {/* KALKULATOR SEWA */}
@@ -448,6 +429,63 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
               </div>
             </div>
 
+          </div>
+        </div>
+
+        {/* Photo Gallery Grid */}
+        <div className="mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-[#423028]">
+                Galeri Foto & Fasilitas {kos.name}
+              </h3>
+              <p className="text-xs text-[#755C51]">
+                Foto kamar tidur, fasilitas kamar mandi dalam, ruang komunal, dan lingkungan
+              </p>
+            </div>
+
+            {/* Gallery Category Tabs */}
+            <div className="flex items-center gap-1 p-1 bg-[#FAF3E8] rounded-xl border border-[#EBDAC8] self-start sm:self-auto overflow-x-auto max-w-full">
+              {(['semua', 'kamar', 'fasilitas', 'lingkungan'] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveGalleryTab(tab)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold capitalize transition-all whitespace-nowrap ${
+                    activeGalleryTab === tab
+                      ? 'bg-white text-[#423028] shadow-xs'
+                      : 'text-[#755C51] hover:text-[#423028]'
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+            {filteredGallery.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative rounded-2xl overflow-hidden border border-[#EBDAC8] bg-white shadow-xs hover:shadow-md transition-all duration-300"
+              >
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#FAF4EB]">
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3 bg-white border-t border-[#F1E4D6] flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#423028] truncate pr-2">
+                    {item.title}
+                  </span>
+                  <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-md bg-[#FAF4EB] text-[#755C51] shrink-0">
+                    {item.category}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
