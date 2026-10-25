@@ -148,36 +148,36 @@ export const kosPartners: KosItem[] = [
     },
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80",
-        title: "Kamar Tidur Bersih & Meja Belajar",
+        url: "/assets/rooms/kamar-ac-utama.jpg",
+        title: "Kamar Tidur Utama (AC, Jendela & Meja Belajar)",
         category: "kamar"
       },
       {
-        url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
-        title: "Fasilitas Kamar Mandi Dalam Bersih (Shower & Kloset)",
+        url: "/assets/rooms/kamar-mandi-dalam.jpg",
+        title: "Fasilitas Kamar Mandi Dalam (Shower, Bidet & Kloset Duduk)",
         category: "fasilitas"
       },
       {
-        url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80",
-        title: "Suasana Kamar Nyaman & Sirkulasi Udara Baik",
+        url: "/assets/rooms/kasur-dipan.jpg",
+        title: "Kasur Empuk Royal Foam & Dipan Kayu Minimalis",
         category: "kamar"
       },
       {
-        url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
-        title: "Dapur Bersama Lengkap untuk Masak Hemat",
+        url: "/assets/rooms/lemari-pakaian.jpg",
+        title: "Lemari Pakaian 2 Pintu Luas & Laci Berpengunci",
         category: "fasilitas"
       },
       {
-        url: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
-        title: "Ruang Santai & Area Parkir Luas Berpagar",
-        category: "lingkungan"
+        url: "/assets/rooms/meja-belajar.jpg",
+        title: "Meja Belajar Ergonomis, Kursi & Laci Meja",
+        category: "kamar"
       }
     ],
     roomTypes: [
       {
-        id: "deluxe-ac",
+        id: "kamar-kamar-mandi-dalam",
         name: "Kamar dengan Fasilitas Kamar Mandi Dalam",
-        tagline: "Paling Favorit untuk Mahasiswa PU yang Mengutamakan Privasi & Kenyamanan Maksimal",
+        tagline: "Kamar Full-Furnished AC, Kasur Busa Royal Foam, Lemari 2 Pintu Luas, Meja Belajar & Kamar Mandi Dalam Pribadi",
         badge: "Kamar Mandi Dalam 🚿",
         priceMonthly: 1350000,
         priceQuarterly: 3900000, // hemat 150rb
@@ -186,69 +186,35 @@ export const kosPartners: KosItem[] = [
         deposit: 300000,
         availableRooms: 3,
         size: "3.5 x 4 Meter",
-        bedType: "Springbed Single / Queen (120 x 200)",
+        bedType: "Kasur Royal Foam Single (100 x 200)",
         ac: true,
         bathroomInside: true,
         images: [
-          "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
-          "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
-          "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80"
+          "/assets/rooms/kamar-ac-utama.jpg",
+          "/assets/rooms/kamar-mandi-dalam.jpg",
+          "/assets/rooms/kasur-dipan.jpg",
+          "/assets/rooms/lemari-pakaian.jpg",
+          "/assets/rooms/meja-belajar.jpg"
         ],
         keyFeatures: [
           "Kamar Mandi Dalam (Shower + Kloset Duduk)",
-          "AC Dingin 0.5 PK Hemat Listrik",
-          "Meja Belajar Ergonomis + Kursi Kerja",
-          "Springbed Nyaman + Bantal & Sprei",
-          "Lemari Pakaian 2 Pintu dengan Cermin",
-          "Jendela Luar & Sirkulasi Udara Segar"
+          "AC Dingin Terawat & Hemat Listrik",
+          "Kasur Busa Royal Foam Nyaman",
+          "Lemari Pakaian 2 Pintu (Gantungan & Laci Kunci)",
+          "Meja Belajar Ergonomis + Kursi + Laci Meja",
+          "Jendela Luar & Gorden Privasi Abu-abu"
         ],
         roomFacilities: [
-          "Kamar Mandi Pribadi di dalam (Shower & Kloset Duduk)",
-          "Kasur Springbed empuk (120x200)",
-          "Pendingin Ruangan (AC Dingin & Terawat)",
-          "Meja Belajar & Kursi Kerja Mahasiswa",
-          "Lemari Pakaian Kayu 2 Pintu",
-          "Cermin Rias",
-          "Stopkontak dekat tempat tidur & meja",
-          "Tempat Sampah & Rak Sepatu Pribadi",
+          "Kamar Mandi Dalam Pribadi (Shower, Jet Washer/Bidet Spray & Kloset Duduk)",
+          "Pendingin Ruangan (AC Split Dingin)",
+          "Kasur Busa Nyaman Royal Foam",
+          "Dipan Kayu Minimalis dengan Sandaran Kepala",
+          "Lemari Pakaian Kayu 2 Pintu (Rak Bertingkat, Tiang Gantungan & Laci Berpengunci)",
+          "Meja Belajar Ergonomis Mahasiswa + Kursi Sandaran Putih + Laci Meja",
+          "Jendela Kamar Luar dengan Gorden Minimalis Abu-abu",
+          "Stopkontak Listrik Tepat Dekat Meja Belajar & Kasur",
+          "WiFi High-Speed Fiber Optic Unlimited",
           "Token Listrik Mandiri (Bisa isi sesuai kebutuhan)"
-        ]
-      },
-      {
-        id: "standard-ac",
-        name: "Kamar AC (Kamar Mandi Luar)",
-        tagline: "Pilihan Ekonomis & Sejuk untuk Mahasiswa yang Ingin Hemat Budget Tetap Adem",
-        badge: "Kamar Mandi Luar 💡",
-        priceMonthly: 1100000,
-        priceQuarterly: 3200000,
-        priceSemester: 6200000,
-        priceYearly: 12000000,
-        deposit: 250000,
-        availableRooms: 2,
-        size: "3 x 3.5 Meter",
-        bedType: "Springbed Single (100 x 200)",
-        ac: true,
-        bathroomInside: false,
-        images: [
-          "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80",
-          "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80"
-        ],
-        keyFeatures: [
-          "AC Dingin & Hemat Energi",
-          "Kamar Mandi Luar Bersih (Rasio 1:2 Kamar)",
-          "Meja Belajar + Kursi",
-          "Springbed Single Nyaman",
-          "Lemari Pakaian",
-          "Akses Dekat Dapur & Area Jemur"
-        ],
-        roomFacilities: [
-          "Kasur Springbed Single (100x200)",
-          "AC Pendingin Ruangan",
-          "Meja Belajar & Kursi",
-          "Lemari Pakaian",
-          "Kamar Mandi Luar Terawat (Dibersihkan rutin)",
-          "Jendela Ventilasi Udara",
-          "Token Listrik Mandiri"
         ]
       }
     ],
@@ -257,9 +223,9 @@ export const kosPartners: KosItem[] = [
         category: "Kenyamanan Kamar",
         icon: "Bed",
         items: [
-          { name: "Full Furnished Siap Huni", desc: "Kasur springbed, lemari pakaian, meja belajar & kursi siap pakai langsung saat move-in.", icon: "Sparkles" },
+          { name: "Full Furnished Siap Huni", desc: "Kasur Royal Foam, lemari 2 pintu, meja belajar & kursi siap pakai langsung saat move-in.", icon: "Sparkles" },
           { name: "AC Sejuk & Dingin", desc: "Unit pendingin AC terawat rutin, nyaman untuk nugas & istirahat.", icon: "Wind" },
-          { name: "Ventilasi Alami & Jendela", desc: "Pencahayaan siang hari terang alami & sirkulasi udara sehat.", icon: "Sun" },
+          { name: "Kamar Mandi Dalam Pribadi", desc: "Shower air bersih, bidet spray, dan kloset duduk bersih di dalam kamar.", icon: "Bath" },
           { name: "Token Listrik Mandiri", desc: "Tiap kamar memiliki meteran token terpisah, pengeluaran listrik terkontrol bebas boros.", icon: "Zap" }
         ]
       },
