@@ -53,14 +53,14 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
           total: calcRoom.priceSemester,
           monthly: Math.round(calcRoom.priceSemester / 6),
           discount: calcRoom.priceMonthly * 6 - calcRoom.priceSemester,
-          label: '6 Bulan (1 Semester Kuliah PU)'
+          label: '6 Bulan (1 Semester PU)'
         };
       case '12':
         return {
           total: calcRoom.priceYearly,
           monthly: Math.round(calcRoom.priceYearly / 12),
           discount: calcRoom.priceMonthly * 12 - calcRoom.priceYearly,
-          label: '12 Bulan (1 Tahun Penuh)'
+          label: '12 Bulan (1 Tahun)'
         };
     }
   };
@@ -80,34 +80,34 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
   };
 
   return (
-    <section id="kos-abs" className="py-16 sm:py-24 bg-transparent relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="kos-abs" className="py-14 sm:py-20 bg-transparent relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF3ED] text-[#476A50] text-xs font-bold mb-3 border border-[#CDE3D2]">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#6B9577]" />
-            <span>Mitra Terpilih Kos Connect</span>
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAF2EC] text-[#3D6B49] text-xs font-bold mb-3 border border-[#D1E4D6]">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#568763]" />
+            <span>Mitra Terverifikasi Kos Connect</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#5E4339] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#423028] tracking-tight">
             Eksplor <span className="text-[#E0707D]">{kos.name}</span>
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#7E6359] leading-relaxed">
+          <p className="mt-2.5 text-xs sm:text-sm text-[#755C51] leading-relaxed">
             {kos.tagline}. Cek foto kamar riil, rincian fasilitas lengkap, serta daftar harga transparan di bawah ini.
           </p>
 
-          {/* Quick Distance Badges to Campus */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-5">
+          {/* Quick Distance Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white border border-[#EBDAC8] text-xs font-semibold text-[#5E4339] shadow-xs">
-              <Navigation className="w-3.5 h-3.5 text-[#E0707D]" />
+              <Navigation className="w-3 h-3 text-[#E0707D]" />
               {kos.distanceToCampus.distanceKm} ke Kampus PU
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white border border-[#EBDAC8] text-xs font-semibold text-[#5E4339] shadow-xs">
-              <Clock className="w-3.5 h-3.5 text-[#F6B84A]" />
+              <Clock className="w-3 h-3 text-[#F6B84A]" />
               {kos.distanceToCampus.motorbike}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white border border-[#EBDAC8] text-xs font-semibold text-[#5E4339] shadow-xs">
-              <MapPin className="w-3.5 h-3.5 text-[#6B9577]" />
+              <MapPin className="w-3 h-3 text-[#568763]" />
               {kos.area}
             </span>
           </div>
@@ -115,28 +115,28 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
 
         {/* Promo Banner if available */}
         {kos.promoInfo && (
-          <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FCECEE] via-[#FEF4E0] to-[#FCECEE] border-2 border-[#F8C8CE] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mb-10 sm:mb-12 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FCECEE] via-[#FEF4E0] to-[#FCECEE] border border-[#F8C8CE] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#E0707D] text-white flex items-center justify-center shrink-0">
-                <BadgePercent className="w-6 h-6" />
+              <div className="w-9 h-9 rounded-xl bg-[#E0707D] text-white flex items-center justify-center shrink-0">
+                <BadgePercent className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#E0707D] bg-white px-2 py-0.5 rounded-md">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#E0707D] bg-white px-2 py-0.5 rounded-md">
                     {kos.promoInfo.badge}
                   </span>
-                  <span className="text-xs text-[#7E6359] font-medium hidden sm:inline">
+                  <span className="text-[11px] text-[#755C51] font-medium">
                     {kos.promoInfo.expiryDate}
                   </span>
                 </div>
-                <p className="text-sm font-bold text-[#5E4339] mt-0.5">
+                <p className="text-xs sm:text-sm font-bold text-[#423028] mt-0.5">
                   {kos.promoInfo.discountText}
                 </p>
               </div>
             </div>
             <a
               href="#booking"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#E0707D] hover:bg-[#C95362] transition-colors shrink-0 shadow-xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#E0707D] hover:bg-[#CF5D6B] transition-colors shrink-0 shadow-xs"
             >
               <span>Klaim Promo Ini</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -145,27 +145,27 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
         )}
 
         {/* Photo Gallery Grid with Category Filter */}
-        <div className="mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="mb-14">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#5E4339]">
-                Galeri Foto & Lingkungan {kos.name}
+              <h3 className="text-lg sm:text-xl font-bold text-[#423028]">
+                Galeri Foto & Fasilitas {kos.name}
               </h3>
-              <p className="text-xs sm:text-sm text-[#7E6359]">
-                Foto asli kamar, fasilitas bersama, dan lingkungan kos yang siap huni
+              <p className="text-xs text-[#755C51]">
+                Foto riil kamar, ruang komunal, dan lingkungan sekitar
               </p>
             </div>
 
             {/* Gallery Category Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-[#FAF4EB] rounded-2xl border border-[#EBDAC8] self-start sm:self-auto">
+            <div className="flex items-center gap-1 p-1 bg-[#FAF3E8] rounded-xl border border-[#EBDAC8] self-start sm:self-auto overflow-x-auto max-w-full">
               {(['semua', 'kamar', 'fasilitas', 'lingkungan'] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveGalleryTab(tab)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold capitalize transition-all whitespace-nowrap ${
                     activeGalleryTab === tab
-                      ? 'bg-white text-[#5E4339] shadow-xs'
-                      : 'text-[#7E6359] hover:text-[#5E4339]'
+                      ? 'bg-white text-[#423028] shadow-xs'
+                      : 'text-[#755C51] hover:text-[#423028]'
                   }`}
                 >
                   {tab}
@@ -174,7 +174,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
             {filteredGallery.map((item, idx) => (
               <div
                 key={idx}
@@ -188,123 +188,119 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                     loading="lazy"
                   />
                 </div>
-                <div className="p-3.5 bg-white border-t border-[#F1E4D6]">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#5E4339] truncate">
-                      {item.title}
-                    </span>
-                    <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-md bg-[#FAF4EB] text-[#7E6359]">
-                      {item.category}
-                    </span>
-                  </div>
+                <div className="p-3 bg-white border-t border-[#F1E4D6] flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#423028] truncate pr-2">
+                    {item.title}
+                  </span>
+                  <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-md bg-[#FAF4EB] text-[#755C51] shrink-0">
+                    {item.category}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* TIPE KAMAR & HARGA */}
-        <div id="tipe-kamar" className="pt-6 mb-16 scroll-mt-24">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#E0707D] bg-[#FCECEE] px-3 py-1 rounded-full border border-[#F8C8CE]">
+        {/* TIPE KAMAR, FASILITAS & HARGA */}
+        <div id="tipe-kamar" className="pt-4 mb-14 scroll-mt-24">
+          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#E0707D] bg-[#FCECEE] px-3 py-1 rounded-full border border-[#F8C8CE]">
               Pilihan Kamar Mahasiswa
             </span>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-[#5E4339] mt-2">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#423028] mt-2">
               Tipe Kamar, Fasilitas & Harga
             </h3>
-            <p className="text-xs sm:text-sm text-[#7E6359] mt-2">
-              Pilih tipe kamar yang paling sesuai dengan budget dan kenyamanan kamu. Semua kamar sudah siap langsung ditempati.
+            <p className="text-xs sm:text-sm text-[#755C51] mt-1.5">
+              Pilih tipe kamar yang sesuai kebutuhanmu. Seluruh kamar siap huni langsung tanpa ribet bawa perabot.
             </p>
           </div>
 
-          {/* Cards Tipe Kamar */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Cards Tipe Kamar (Clean non-overlapping layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {kos.roomTypes.map((room) => {
               const isSelected = selectedRoomId === room.id;
 
               return (
                 <div
                   key={room.id}
-                  className={`rounded-3xl bg-white border-2 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
+                  className={`rounded-2xl sm:rounded-3xl bg-white border-2 transition-all duration-300 overflow-hidden flex flex-col justify-between ${
                     isSelected
-                      ? 'border-[#E0707D] shadow-lg ring-2 ring-[#E0707D]/20'
-                      : 'border-[#EBDAC8] hover:border-[#D8BEA8] shadow-sm'
+                      ? 'border-[#E0707D] shadow-md ring-2 ring-[#E0707D]/20'
+                      : 'border-[#EBDAC8] hover:border-[#D8BEA8] shadow-xs'
                   }`}
                 >
-                  {/* Card Header & Badge */}
                   <div>
-                    {/* Top Image Preview Carousel */}
+                    {/* Clean Room Image with non-colliding badges */}
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#FAF4EB]">
                       <img
                         src={room.images[0]}
                         alt={room.name}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       
-                      {/* Floating Badges */}
-                      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                      {/* Floating Badges (Top only, clean & discreet) */}
+                      <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[90%]">
                         {room.badge && (
-                          <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#E0707D] text-white shadow-sm">
+                          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#E0707D] text-white shadow-xs">
                             {room.badge}
                           </span>
                         )}
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#6B9577] text-white shadow-sm flex items-center gap-1">
+                        <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#568763] text-white shadow-xs flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" />
-                          {room.availableRooms} Kamar Tersedia
+                          Sisa {room.availableRooms} Kamar
                         </span>
-                      </div>
-
-                      {/* Bottom Title on Image */}
-                      <div className="absolute bottom-4 left-4 right-4 text-white">
-                        <div className="text-xl sm:text-2xl font-extrabold drop-shadow-sm">
-                          {room.name}
-                        </div>
-                        <div className="text-xs text-white/90 font-medium">
-                          Ukuran: {room.size} • Kasur: {room.bedType}
-                        </div>
                       </div>
                     </div>
 
-                    {/* Room Specs & Pricing */}
-                    <div className="p-6">
+                    {/* Room Info Body (Safe from image collision) */}
+                    <div className="p-5 sm:p-6">
                       
+                      {/* Room Title & Specs */}
+                      <div className="mb-3">
+                        <h4 className="text-lg sm:text-xl font-extrabold text-[#423028]">
+                          {room.name}
+                        </h4>
+                        <div className="text-xs text-[#755C51] mt-0.5">
+                          Ukuran: <strong className="text-[#423028]">{room.size}</strong> • Kasur: <strong className="text-[#423028]">{room.bedType}</strong>
+                        </div>
+                      </div>
+
                       {/* Price Box */}
-                      <div className="p-4 rounded-2xl bg-[#FAF4EB] border border-[#EBDAC8] mb-5 flex items-baseline justify-between">
+                      <div className="p-3.5 sm:p-4 rounded-xl bg-[#FAF3E8] border border-[#EBDAC8] mb-4 flex items-baseline justify-between">
                         <div>
-                          <div className="text-xs text-[#7E6359] font-medium">Harga Sewa Bulanan</div>
-                          <div className="text-2xl sm:text-3xl font-extrabold text-[#5E4339]">
+                          <div className="text-[11px] text-[#755C51] font-medium">Harga Sewa Bulanan</div>
+                          <div className="text-xl sm:text-2xl font-extrabold text-[#423028]">
                             {formatRupiah(room.priceMonthly)}
-                            <span className="text-xs font-medium text-[#7E6359]"> /bulan</span>
+                            <span className="text-xs font-normal text-[#755C51]"> /bln</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <span className="text-[11px] font-semibold text-[#476A50] bg-[#EBF3ED] px-2 py-1 rounded-md">
-                            Sudah Termasuk WiFi & Air
+                          <span className="text-[10px] sm:text-[11px] font-bold text-[#3D6B49] bg-[#EAF2EC] px-2 py-0.5 rounded-md">
+                            Inc. WiFi & Air
                           </span>
-                          <div className="text-[11px] text-[#7E6359] mt-1">
+                          <div className="text-[10px] text-[#755C51] mt-1">
                             Deposit: {formatRupiah(room.deposit)}
                           </div>
                         </div>
                       </div>
 
                       {/* Tagline */}
-                      <p className="text-xs sm:text-sm text-[#7E6359] mb-5 leading-relaxed">
+                      <p className="text-xs text-[#755C51] mb-4 leading-relaxed">
                         {room.tagline}
                       </p>
 
-                      {/* Key Features Quick Pills */}
-                      <div className="mb-5">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[#5E4339] mb-2.5">
-                          Fitur Unggulan Kamar:
+                      {/* Key Features */}
+                      <div className="mb-4">
+                        <div className="text-xs font-bold uppercase tracking-wider text-[#423028] mb-2">
+                          Fasilitas Kamar:
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                           {room.keyFeatures.map((feat, i) => (
                             <div
                               key={i}
-                              className="flex items-center gap-2 text-xs font-semibold text-[#5E4339]"
+                              className="flex items-center gap-2 text-xs font-medium text-[#423028]"
                             >
-                              <div className="w-4 h-4 rounded-full bg-[#EBF3ED] text-[#6B9577] flex items-center justify-center shrink-0">
+                              <div className="w-3.5 h-3.5 rounded-full bg-[#EAF2EC] text-[#568763] flex items-center justify-center shrink-0">
                                 <Check className="w-2.5 h-2.5 stroke-[3]" />
                               </div>
                               <span className="truncate">{feat}</span>
@@ -313,35 +309,20 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                         </div>
                       </div>
 
-                      {/* Detail Fasilitas Kamar */}
-                      <div className="pt-4 border-t border-[#F1E4D6]">
-                        <div className="text-xs font-bold uppercase tracking-wider text-[#5E4339] mb-2.5">
-                          Semua Fasilitas di Dalam Kamar:
-                        </div>
-                        <ul className="space-y-1.5">
-                          {room.roomFacilities.map((fac, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-xs text-[#7E6359]">
-                              <span className="text-[#E0707D] font-bold">•</span>
-                              <span>{fac}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
                     </div>
                   </div>
 
-                  {/* Card Action Footer */}
-                  <div className="p-6 pt-0">
+                  {/* Card Action */}
+                  <div className="p-5 sm:p-6 pt-0">
                     <button
                       onClick={() => {
                         setSelectedRoomId(room.id);
                         onSelectRoomForBooking(room, '1 Bulan', room.priceMonthly);
                       }}
-                      className={`w-full py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-sm ${
+                      className={`w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-xs ${
                         isSelected
-                          ? 'bg-[#E0707D] hover:bg-[#C95362] text-white shadow-[#E0707D]/30'
-                          : 'bg-[#5E4339] hover:bg-[#3F2B23] text-white'
+                          ? 'bg-[#E0707D] hover:bg-[#CF5D6B] text-white shadow-[#E0707D]/25'
+                          : 'bg-[#5E4339] hover:bg-[#423028] text-white'
                       }`}
                     >
                       <span>Booking Tipe {room.name.split('(')[0]}</span>
@@ -354,41 +335,41 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
           </div>
         </div>
 
-        {/* KALKULATOR SIMULASI SEWA & DISKON ANAK PU */}
-        <div className="mb-16 p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[#FAF4EB] via-white to-[#FAF4EB] border-2 border-[#EBDAC8] shadow-sm">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2.5 rounded-2xl bg-[#FEF4E0] text-[#D98A1E]">
-                <Calculator className="w-6 h-6" />
+        {/* KALKULATOR SEWA */}
+        <div className="mb-14 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#EBDAC8] shadow-xs">
+          <div className="max-w-2xl mx-auto">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2.5 rounded-xl bg-[#FEF4E0] text-[#D98A1E] shrink-0">
+                <Calculator className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#5E4339]">
-                  Simulasi Biaya Sewa Khusus Mahasiswa PU
+                <h3 className="text-lg sm:text-xl font-bold text-[#423028]">
+                  Simulasi Biaya Sewa Mahasiswa PU
                 </h3>
-                <p className="text-xs sm:text-sm text-[#7E6359]">
+                <p className="text-xs text-[#755C51]">
                   Pilih durasi sewa untuk melihat diskon paket semesteran atau tahunan
                 </p>
               </div>
             </div>
 
             {/* Room Selector */}
-            <div className="mt-6">
-              <label className="block text-xs font-bold text-[#5E4339] mb-2 uppercase tracking-wider">
-                Pilih Tipe Kamar:
+            <div className="mb-5">
+              <label className="block text-xs font-bold text-[#423028] mb-2 uppercase tracking-wider">
+                1. Pilih Tipe Kamar:
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {kos.roomTypes.map((r) => (
                   <button
                     key={r.id}
                     onClick={() => setCalcRoomId(r.id)}
-                    className={`p-3.5 rounded-2xl text-left border-2 transition-all ${
+                    className={`p-3 rounded-xl text-left border transition-all ${
                       calcRoomId === r.id
-                        ? 'border-[#E0707D] bg-[#FCECEE]/50 font-bold text-[#5E4339]'
-                        : 'border-[#EBDAC8] bg-white text-[#7E6359] hover:border-[#D8BEA8]'
+                        ? 'border-[#E0707D] bg-[#FCECEE]/50 font-bold text-[#423028]'
+                        : 'border-[#EBDAC8] bg-white text-[#755C51] hover:border-[#D8BEA8]'
                     }`}
                   >
-                    <div className="text-sm font-bold text-[#5E4339]">{r.name}</div>
-                    <div className="text-xs text-[#7E6359] mt-0.5">
+                    <div className="text-xs sm:text-sm font-bold text-[#423028]">{r.name}</div>
+                    <div className="text-[11px] text-[#755C51] mt-0.5">
                       {formatRupiah(r.priceMonthly)} / bulan
                     </div>
                   </button>
@@ -397,13 +378,13 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
             </div>
 
             {/* Duration Selector */}
-            <div className="mt-6">
-              <label className="block text-xs font-bold text-[#5E4339] mb-2 uppercase tracking-wider">
-                Pilih Durasi Sewa:
+            <div className="mb-6">
+              <label className="block text-xs font-bold text-[#423028] mb-2 uppercase tracking-wider">
+                2. Pilih Durasi Sewa:
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
-                  { key: '1', label: '1 Bulan', note: 'Standar' },
+                  { key: '1', label: '1 Bulan', note: 'Bulanan' },
                   { key: '3', label: '3 Bulan', note: 'Hemat 150rb' },
                   { key: '6', label: '1 Semester', note: 'Rekomendasi PU' },
                   { key: '12', label: '1 Tahun', note: 'Hemat s.d 1.7jt' }
@@ -411,16 +392,16 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                   <button
                     key={item.key}
                     onClick={() => setCalcDuration(item.key as any)}
-                    className={`p-3 rounded-2xl text-center border-2 transition-all ${
+                    className={`p-2.5 rounded-xl text-center border transition-all ${
                       calcDuration === item.key
                         ? 'border-[#E0707D] bg-[#E0707D] text-white shadow-xs'
-                        : 'border-[#EBDAC8] bg-white text-[#5E4339] hover:border-[#D8BEA8]'
+                        : 'border-[#EBDAC8] bg-[#FAF3E8] text-[#423028] hover:border-[#D8BEA8]'
                     }`}
                   >
-                    <div className="text-xs sm:text-sm font-extrabold">{item.label}</div>
+                    <div className="text-xs sm:text-sm font-bold">{item.label}</div>
                     <div
                       className={`text-[10px] mt-0.5 ${
-                        calcDuration === item.key ? 'text-white/90' : 'text-[#6B9577] font-semibold'
+                        calcDuration === item.key ? 'text-white/90' : 'text-[#568763] font-semibold'
                       }`}
                     >
                       {item.note}
@@ -430,38 +411,38 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
               </div>
             </div>
 
-            {/* Calculation Result Breakdown */}
-            <div className="mt-8 p-5 sm:p-6 rounded-2xl bg-white border border-[#EBDAC8] shadow-xs">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#F1E4D6]">
+            {/* Calculation Result */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#FAF3E8] border border-[#EBDAC8]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#E8D6C3]">
                 <div>
-                  <span className="text-xs text-[#7E6359] font-medium">Estimasi Total Biaya Sewa ({calcResult.label})</span>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[#5E4339]">
+                  <span className="text-[11px] text-[#755C51]">Estimasi Total Sewa ({calcResult.label})</span>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-[#423028]">
                     {formatRupiah(calcResult.total)}
                   </div>
-                  <div className="text-xs text-[#7E6359] mt-0.5">
-                    Setara <span className="font-bold text-[#5E4339]">{formatRupiah(calcResult.monthly)}</span> per bulan
+                  <div className="text-xs text-[#755C51] mt-0.5">
+                    Setara <strong className="text-[#423028]">{formatRupiah(calcResult.monthly)}</strong> / bulan
                   </div>
                 </div>
 
                 {calcResult.discount > 0 && (
-                  <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#EBF3ED] text-[#476A50] text-xs font-bold border border-[#CDE3D2]">
-                    <Sparkles className="w-4 h-4 text-[#6B9577]" />
-                    <span>Hemat {formatRupiah(calcResult.discount)} untuk Mahasiswa PU!</span>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#EAF2EC] text-[#3D6B49] text-xs font-bold border border-[#D1E4D6] self-start sm:self-auto">
+                    <Sparkles className="w-3.5 h-3.5 text-[#568763]" />
+                    <span>Hemat {formatRupiah(calcResult.discount)}!</span>
                   </div>
                 )}
               </div>
 
-              <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="text-xs text-[#7E6359]">
-                  💡 Sudah termasuk: Air, Iuran Sampah, WiFi Unlimited & Pemeliharaan Fasilitas.
+              <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="text-[11px] text-[#755C51]">
+                  Sudah termasuk: Air, Iuran Sampah & WiFi Unlimited.
                 </div>
                 <button
                   onClick={() => {
                     onSelectRoomForBooking(calcRoom, calcResult.label, calcResult.total);
                   }}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#E0707D] hover:bg-[#C95362] text-white text-xs font-bold transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#E0707D] hover:bg-[#CF5D6B] text-white text-xs font-bold transition-all shadow-xs"
                 >
-                  <span>Pilih Paket Ini & Chat WA</span>
+                  <span>Pilih Paket & Chat WA</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -471,50 +452,48 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
         </div>
 
         {/* FASILITAS LENGKAP KOS ABS */}
-        <div id="fasilitas" className="pt-6 mb-16 scroll-mt-24">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#5E4339] bg-[#FEF4E0] px-3 py-1 rounded-full border border-[#F6DEB0]">
-              Kelengkapan Tempat Tinggal
+        <div id="fasilitas" className="pt-4 mb-14 scroll-mt-24">
+          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#5E4339] bg-[#FAF3E8] px-3 py-1 rounded-full border border-[#EBDAC8]">
+              Fasilitas Seluruh Area
             </span>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-[#5E4339] mt-2">
-              Fasilitas Lengkap di {kos.name}
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#423028] mt-2">
+              Kelengkapan di {kos.name}
             </h3>
-            <p className="text-xs sm:text-sm text-[#7E6359] mt-2">
-              Didesain khusus untuk memenuhi kebutuhan belajar dan istirahat mahasiswa President University.
+            <p className="text-xs sm:text-sm text-[#755C51] mt-1.5">
+              Dirancang untuk kenyamanan istirahat dan efisiensi belajar mahasiswa President University.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {kos.facilities.map((group, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-3xl bg-white border border-[#EBDAC8] shadow-xs flex flex-col justify-between"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-[#EBDAC8] shadow-xs"
               >
-                <div>
-                  <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-[#F1E4D6]">
-                    <div className="w-10 h-10 rounded-xl bg-[#FAF4EB] text-[#E0707D] flex items-center justify-center font-bold">
-                      {idx === 0 ? <Bed className="w-5 h-5" /> : idx === 1 ? <Coffee className="w-5 h-5" /> : <ShieldCheck className="w-5 h-5" />}
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#5E4339]">
-                      {group.category}
-                    </h4>
+                <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-[#F1E4D6]">
+                  <div className="w-9 h-9 rounded-xl bg-[#FAF3E8] text-[#E0707D] flex items-center justify-center font-bold shrink-0">
+                    {idx === 0 ? <Bed className="w-4 h-4" /> : idx === 1 ? <Coffee className="w-4 h-4" /> : <ShieldCheck className="w-4 h-4" />}
                   </div>
+                  <h4 className="text-sm sm:text-base font-bold text-[#423028]">
+                    {group.category}
+                  </h4>
+                </div>
 
-                  <div className="space-y-4">
-                    {group.items.map((item, itemIdx) => (
-                      <div key={itemIdx} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-[#E0707D] mt-1.5 shrink-0" />
-                        <div>
-                          <div className="text-xs sm:text-sm font-bold text-[#5E4339]">
-                            {item.name}
-                          </div>
-                          <p className="text-[11px] sm:text-xs text-[#7E6359] mt-0.5 leading-relaxed">
-                            {item.desc}
-                          </p>
+                <div className="space-y-3">
+                  {group.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="flex items-start gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#E0707D] mt-1.5 shrink-0" />
+                      <div>
+                        <div className="text-xs font-bold text-[#423028]">
+                          {item.name}
                         </div>
+                        <p className="text-[11px] text-[#755C51] mt-0.5 leading-relaxed">
+                          {item.desc}
+                        </p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -522,23 +501,23 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
         </div>
 
         {/* ATURAN & LINGKUNGAN KOS */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#FAF4EB] border border-[#EBDAC8]">
-          <div className="max-w-3xl mx-auto">
-            <h4 className="text-lg sm:text-xl font-bold text-[#5E4339] text-center mb-2">
-              Tata Tertib & Kenyamanan Bersama {kos.name}
+        <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#FAF3E8] border border-[#EBDAC8]">
+          <div className="max-w-2xl mx-auto">
+            <h4 className="text-base sm:text-lg font-bold text-[#423028] text-center mb-1">
+              Tata Tertib & Ketertiban Bersama {kos.name}
             </h4>
-            <p className="text-xs sm:text-sm text-[#7E6359] text-center mb-6">
-              Lingkungan yang kondusif agar seluruh mahasiswa PU dapat beristirahat dan belajar dengan optimal
+            <p className="text-xs text-[#755C51] text-center mb-5">
+              Lingkungan tenang agar seluruh mahasiswa PU dapat beristirahat dan belajar nyaman
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {kos.rules.map((rule, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-white border border-[#EFE2D3] shadow-xs">
-                  <div className="text-xs sm:text-sm font-bold text-[#5E4339] flex items-center gap-2 mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-[#6B9577] shrink-0" />
+                <div key={idx} className="p-3.5 rounded-xl bg-white border border-[#EFE2D3] shadow-2xs">
+                  <div className="text-xs font-bold text-[#423028] flex items-center gap-2 mb-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#568763] shrink-0" />
                     <span>{rule.title}</span>
                   </div>
-                  <p className="text-[11px] sm:text-xs text-[#7E6359] leading-relaxed">
+                  <p className="text-[11px] text-[#755C51] leading-relaxed">
                     {rule.desc}
                   </p>
                 </div>
