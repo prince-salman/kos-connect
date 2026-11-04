@@ -94,8 +94,8 @@ export const platformConfig: PlatformConfig = {
   tagline: "Mengkoneksikan Mahasiswa PU dengan Kos Incaran Terbaik",
   description: "Platform terpercaya anak President University untuk menemukan hunian kos nyaman, aman, dan strategis setelah move out dari asrama (dormy).",
   instagram: {
-    handle: "@kosconnect.pu",
-    url: "https://instagram.com/kosconnect.pu"
+    handle: "@kost.connect",
+    url: "https://instagram.com/kost.connect"
   },
   teamContact: {
     email: "kosconnect.pu@gmail.com",
@@ -114,15 +114,15 @@ export const kosPartners: KosItem[] = [
     verified: true,
     partnerStatus: "Official Partner Eksklusif",
     badgeText: "Mitra Resmi Terverifikasi Kos Connect",
-    tagline: "Hunian Nyaman, Tenang & Strategis Dekat Kampus President University",
-    description: "Kos ABS adalah mitra resmi pertama Kos Connect yang telah diverifikasi kelayakan fasilitas, kebersihan, dan keamanannya untuk mahasiswa President University. Berlokasi di kawasan tenang dan aman, hanya 5 menit berkendara ke kampus PU Jababeka, dilengkapi fasilitas modern yang siap pakai langsung setelah kamu move out dari dormy.",
+    tagline: "Kamar AC Nyaman & Kamar Mandi Dalam Pribadi Dekat Kampus President University",
+    description: "Kos ABS adalah mitra resmi pertama Kos Connect yang telah diverifikasi kelayakan fasilitas, kebersihan, dan keamanannya untuk mahasiswa President University. Berlokasi strategis di kawasan tenang, hanya sekitar 1.3 km dari kampus PU, dilengkapi fasilitas kamar mandi dalam, AC dingin, dan kasur Royal Foam yang siap pakai langsung setelah move out dari dormy.",
     address: "Jl. Simprug Garden Raya, Jababeka II, Cikarang Utara, Kab. Bekasi (Dekat Kampus President University)",
     area: "Simprug / Jababeka II, Cikarang Utara",
     mapsUrl: "https://maps.google.com/?q=President+University+Cikarang",
     distanceToCampus: {
       distanceKm: "1.3 km",
       walking: "12 - 15 Menit jalan kaki santai",
-      motorbike: "4 - 5 Menit via Simprug Raya",
+      motorbike: "4 - 5 Menit via Simprug Raya (Ojek Online)",
       car: "6 Menit",
       nearestLandmarks: [
         "Kampus Utama President University (PU)",
@@ -142,8 +142,8 @@ export const kosPartners: KosItem[] = [
     },
     promoInfo: {
       title: "Special Move-Out Dormy PU Promo!",
-      badge: "Promo Anak PU",
-      discountText: "Potongan Rp 100.000/bulan untuk sewa minimal 3 bulan pertama bagi mahasiswa President University",
+      badge: "Promo Bebas Deposit",
+      discountText: "Free WiFi High-Speed & Air Bersih • Tanpa Uang Deposit (Deposit Rp 0) untuk Mahasiswa President University",
       expiryDate: "Hingga 31 Desember 2026"
     },
     gallery: [
@@ -179,11 +179,11 @@ export const kosPartners: KosItem[] = [
         name: "Kamar dengan Fasilitas Kamar Mandi Dalam",
         tagline: "Kamar Full-Furnished AC, Kasur Busa Royal Foam, Lemari 2 Pintu Luas, Meja Belajar & Kamar Mandi Dalam Pribadi",
         badge: "Kamar Mandi Dalam 🚿",
-        priceMonthly: 1350000,
-        priceQuarterly: 3900000, // hemat 150rb
-        priceSemester: 7500000,  // hemat 600rb
-        priceYearly: 14500000,   // hemat 1.7jt
-        deposit: 300000,
+        priceMonthly: 1500000,
+        priceQuarterly: 4350000, // hemat 150rb (setara 1.45jt/bln)
+        priceSemester: 8500000,  // hemat 500rb
+        priceYearly: 16500000,   // hemat 1.5jt
+        deposit: 0,              // Free deposit / gausah deposit
         availableRooms: 3,
         size: "3.5 x 4 Meter",
         bedType: "Kasur Royal Foam Single (100 x 200)",
@@ -197,63 +197,59 @@ export const kosPartners: KosItem[] = [
           "/assets/rooms/meja-belajar.jpg"
         ],
         keyFeatures: [
-          "Kamar Mandi Dalam (Shower + Kloset Duduk)",
-          "AC Dingin Terawat & Hemat Listrik",
-          "Kasur Busa Royal Foam Nyaman",
+          "Kamar Mandi Dalam (Shower + Kloset Duduk + Bidet Spray)",
+          "AC Dingin 0.5 PK Terawat & Hemat Listrik",
+          "Free WiFi Fiber Optic Unlimited High-Speed",
+          "Free Air Bersih & Iuran Sampah Lingkungan",
+          "Tanpa Uang Deposit (Deposit Rp 0)",
+          "Kasur Busa Royal Foam Nyaman + Dipan Kayu",
           "Lemari Pakaian 2 Pintu (Gantungan & Laci Kunci)",
-          "Meja Belajar Ergonomis + Kursi + Laci Meja",
-          "Jendela Luar & Gorden Privasi Abu-abu"
+          "Meja Belajar Ergonomis + Kursi Sandaran + Laci Meja",
+          "Jendela Luar & Gorden Privasi Abu-abu",
+          "Privasi Terjaga (Tanpa Fasilitas Bersama)"
         ],
         roomFacilities: [
           "Kamar Mandi Dalam Pribadi (Shower, Jet Washer/Bidet Spray & Kloset Duduk)",
           "Pendingin Ruangan (AC Split Dingin)",
+          "Free Akses WiFi Fiber Optic Unlimited",
+          "Free Biaya Pemakaian Air Bersih",
+          "Bebas Uang Deposit (Deposit Rp 0)",
           "Kasur Busa Nyaman Royal Foam",
           "Dipan Kayu Minimalis dengan Sandaran Kepala",
           "Lemari Pakaian Kayu 2 Pintu (Rak Bertingkat, Tiang Gantungan & Laci Berpengunci)",
           "Meja Belajar Ergonomis Mahasiswa + Kursi Sandaran Putih + Laci Meja",
           "Jendela Kamar Luar dengan Gorden Minimalis Abu-abu",
           "Stopkontak Listrik Tepat Dekat Meja Belajar & Kasur",
-          "WiFi High-Speed Fiber Optic Unlimited",
           "Token Listrik Mandiri (Bisa isi sesuai kebutuhan)"
         ]
       }
     ],
     facilities: [
       {
-        category: "Kenyamanan Kamar",
+        category: "Kenyamanan Kamar Mandi Dalam",
         icon: "Bed",
         items: [
-          { name: "Full Furnished Siap Huni", desc: "Kasur Royal Foam, lemari 2 pintu, meja belajar & kursi siap pakai langsung saat move-in.", icon: "Sparkles" },
-          { name: "AC Sejuk & Dingin", desc: "Unit pendingin AC terawat rutin, nyaman untuk nugas & istirahat.", icon: "Wind" },
-          { name: "Kamar Mandi Dalam Pribadi", desc: "Shower air bersih, bidet spray, dan kloset duduk bersih di dalam kamar.", icon: "Bath" },
+          { name: "Kamar Mandi Dalam Pribadi", desc: "Shower air bersih lancar, jet washer/bidet spray, dan kloset duduk bersih di dalam kamar.", icon: "Bath" },
+          { name: "Full Furnished Siap Huni", desc: "Kasur Royal Foam, dipan kayu minimalis, lemari 2 pintu, meja belajar & kursi siap pakai.", icon: "Sparkles" },
+          { name: "AC Sejuk & Dingin", desc: "Unit pendingin AC terawat rutin, nyaman untuk istirahat dan nugas kuliah.", icon: "Wind" },
           { name: "Token Listrik Mandiri", desc: "Tiap kamar memiliki meteran token terpisah, pengeluaran listrik terkontrol bebas boros.", icon: "Zap" }
         ]
       },
       {
-        category: "Fasilitas Bersama & Dapur",
-        icon: "Coffee",
-        items: [
-          { name: "Dapur Bersama Lengkap", desc: "Tersedia kompor gas, wastafel cuci piring, dan peralatan masak dasar untuk masak hemat harian.", icon: "UtensilsCrossed" },
-          { name: "Kulkas Bersama & Dispenser", desc: "Kulkas penyimpan makanan dingin & air minum galon higienis.", icon: "Refrigerator" },
-          { name: "Area Cuci & Jemur Pakaian", desc: "Area jemuran terlindung hujan dan tempat cuci baju yang luas.", icon: "Shirt" },
-          { name: "Ruang Tamu & Ruang Diskusi", desc: "Area santai untuk menerima teman kuliah PU nugas kelompok atau bersantai sore.", icon: "Users" }
-        ]
-      },
-      {
-        category: "Konektivitas & Keamanan",
+        category: "Layanan, Konektivitas & Keamanan Kos",
         icon: "ShieldCheck",
         items: [
-          { name: "WiFi High-Speed Unlimited", desc: "Koneksi internet fiber optic kencang stabil untuk Zoom kuliah, streaming, dan submit tugas.", icon: "Wifi" },
-          { name: "CCTV 24 Jam", desc: "Kamera pengawas aktif di area gerbang, parkiran, dan lorong untuk keamanan maksimal.", icon: "Video" },
-          { name: "Gerbang Mandiri (Kunci Sendiri)", desc: "Mahasiswa membawa kunci gerbang sendiri. Bebas pulang malam asalkan tenang & tertib.", icon: "KeyRound" },
-          { name: "Parkir Motor & Mobil Aman", desc: "Area parkir motor luas beratap dan aman dari panas/hujan, serta opsi parkir mobil.", icon: "Car" }
+          { name: "Free WiFi Fiber Optic High-Speed", desc: "Koneksi internet kencang dan stabil tanpa biaya tambahan untuk Zoom, streaming & submit tugas.", icon: "Wifi" },
+          { name: "Free Air Bersih & Iuran Sampah", desc: "Biaya air bersih dan kebersihan lingkungan sudah termasuk dalam sewa bulanan.", icon: "Droplets" },
+          { name: "Bebas Biaya Deposit (Rp 0)", desc: "Mahasiswa tidak dibebani uang jaminan deposit saat mulai sewa kamar.", icon: "BadgePercent" },
+          { name: "CCTV 24 Jam & Gerbang Mandiri", desc: "Kamera pengawas aktif di area gerbang dan lorong, serta kunci gerbang mandiri untuk akses 24 jam.", icon: "KeyRound" }
         ]
       }
     ],
     rules: [
       {
-        title: "Akses Bebas Jam Malam (Akses Mandiri)",
-        desc: "Setiap penghuni dibekali kunci gerbang sendiri sehingga tidak terkunci jika harus belajar kelompok atau kegiatan kampus malam hari.",
+        title: "Akses Mandiri 24 Jam (Kunci Sendiri)",
+        desc: "Setiap penghuni dibekali kunci gerbang sendiri sehingga tidak terkunci jika ada kegiatan kampus atau tugas kelompok hingga malam hari.",
         icon: "Key"
       },
       {
@@ -262,13 +258,13 @@ export const kosPartners: KosItem[] = [
         icon: "VolumeX"
       },
       {
-        title: "Kebersihan Area Bersama",
-        desc: "Wajib mencuci alat makan setelah memasak di dapur bersama dan membuang sampah pada tempat yang disediakan.",
+        title: "Kebersihan Kamar & Lorong",
+        desc: "Wajib menjaga kebersihan kamar masing-masing dan membuang sampah pada tempat penampungan yang telah disediakan.",
         icon: "Trash2"
       },
       {
-        title: "Tamu & Keamanan",
-        desc: "Tamu diterima di ruang tamu bersama. Dilarang membawa obat-obatan terlarang, miras, atau membuat keributan.",
+        title: "Privasi & Keamanan Bersama",
+        desc: "Menjaga ketertiban lingkungan kos. Dilarang membawa obat-obatan terlarang, miras, atau membuat keributan yang mengganggu penghuni lain.",
         icon: "ShieldAlert"
       }
     ],
@@ -279,11 +275,15 @@ export const kosPartners: KosItem[] = [
       },
       {
         question: "Berapa jarak sebenarnya dari Kos ABS ke President University?",
-        answer: "Sangat dekat, hanya sekitar 1.2 - 1.4 km ke Main Campus PU (sekitar 4-5 menit naik motor, atau 12 menit jalan santai lewat jalur Simprug). Banyak ojek online yang selalu standby di area ini."
+        answer: "Sangat dekat, hanya sekitar 1.2 - 1.4 km ke Main Campus PU (sekitar 4-5 menit naik ojek online, atau 12 menit jalan santai lewat jalur Simprug)."
       },
       {
-        question: "Apakah harga sewa sudah termasuk air, sampah, dan WiFi?",
-        answer: "Ya! Harga sewa bulanan sudah include air bersih, iuran kebersihan/sampah, dan akses WiFi fiber optic sepuasnya. Untuk listrik menggunakan sistem token per kamar sehingga kamu hanya bayar listrik sesuai pemakaian pribadi."
+        question: "Apakah harga sewa sudah termasuk WiFi dan air, serta apakah ada deposit?",
+        answer: "Ya! Harga sewa Rp 1.500.000/bulan sudah include Free WiFi fiber optic unlimited, free air bersih, dan iuran sampah lingkungan. Selain itu, sewa di Kos ABS TANPA DEPOSIT (Deposit Rp 0). Untuk listrik menggunakan sistem token mandiri per kamar sehingga pengeluaran listrik terkontrol sesuai kebutuhanmu."
+      },
+      {
+        question: "Apakah ada fasilitas dapur bersama, kulkas bersama, atau area parkir kendaraan?",
+        answer: "Tidak ada. Kos ABS difokuskan khusus sebagai hunian kamar tidur pribadi dengan kamar mandi dalam yang tenang, bersih, dan privat. Di sini tidak ada fasilitas bersama (tidak ada dapur/kulkas bersama) dan tidak menyediakan area parkir kendaraan. Lokasinya sangat dekat dengan President University (hanya sekitar 1.3 km), sehingga mahasiswa biasa jalan kaki santai atau menggunakan transportasi online."
       },
       {
         question: "Bagaimana cara booking dan apakah bisa survei lokasi dulu?",
@@ -291,7 +291,7 @@ export const kosPartners: KosItem[] = [
       },
       {
         question: "Bisa bayar per 3 bulan atau per semester?",
-        answer: "Bisa! Bahkan pembayaran per 3 bulan, per semester (6 bulan), atau per tahun mendapatkan potongan harga spesial untuk mahasiswa President University."
+        answer: "Bisa! Pembayaran per 3 bulan (kuartal), per semester (6 bulan), atau per tahun mendapatkan potongan harga spesial untuk mahasiswa President University."
       }
     ]
   }

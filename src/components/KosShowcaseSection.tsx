@@ -7,7 +7,6 @@ import {
   MapPin,
   Sparkles,
   ShieldCheck,
-  Coffee,
   ArrowRight,
   Calculator,
   BadgePercent,
@@ -18,7 +17,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Maximize2,
-  X
+  X,
+  Info
 } from 'lucide-react';
 
 interface KosShowcaseProps {
@@ -38,10 +38,10 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
 
   // Photo titles & captions
   const photoDetails = [
-    { title: 'Kamar Utama & Pendingin AC', desc: 'AC Sharp split, jendela dengan gorden abu-abu, stopkontak, dan meja belajar' },
-    { title: 'Fasilitas Kamar Mandi Dalam', desc: 'Shower air bersih, jet washer bidet, dan kloset duduk bersih di dalam kamar' },
+    { title: 'Kamar Utama & Pendingin AC', desc: 'AC Sharp split dingin, jendela dengan gorden abu-abu, stopkontak, dan meja belajar' },
+    { title: 'Fasilitas Kamar Mandi Dalam', desc: 'Shower air bersih lancar, jet washer bidet, dan kloset duduk bersih di dalam kamar' },
     { title: 'Kasur Busa Royal Foam & Dipan', desc: 'Kasur empuk nyaman dengan dipan kayu minimalis dan sandaran kepala' },
-    { title: 'Lemari Pakaian 2 Pintu Luas', desc: 'Dilengkapi rak bertingkat, gantungan baju kokoh, dan laci berpengunci' },
+    { title: 'Lemari Pakaian 2 Pintu Luas', desc: 'Dilengkapi rak bertingkat, tiang gantungan kokoh, dan laci berpengunci' },
     { title: 'Meja Belajar Mahasiswa & Kursi', desc: 'Meja kerja/belajar ergonomis dengan laci penyimpanan dan kursi putih' }
   ];
 
@@ -156,7 +156,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
               href="#booking"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#E0707D] hover:bg-[#CF5D6B] transition-colors shrink-0 shadow-xs"
             >
-              <span>Klaim Promo Ini</span>
+              <span>Booking via WhatsApp</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -186,7 +186,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                     Kamar Mandi Dalam
                   </span>
                   <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#568763] text-white shadow-xs flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3" />
+                    <CheckCircle2 className="w-3.5 h-3.5" />
                     Sisa {singleRoom.availableRooms} Kamar
                   </span>
                 </div>
@@ -228,7 +228,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
 
               </div>
 
-              {/* Clean Thumbnails Strip (Natural portrait thumbnails without awkward cropping) */}
+              {/* Clean Thumbnails Strip */}
               <div className="mt-4">
                 <div className="flex items-center justify-between text-xs text-[#755C51] mb-2 font-medium">
                   <span className="font-bold text-[#423028]">5 Foto Asli Fasilitas Kamar:</span>
@@ -287,10 +287,10 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                     </div>
                     <div className="text-right">
                       <span className="text-[11px] font-bold text-[#3D6B49] bg-[#EAF2EC] px-2.5 py-1 rounded-md">
-                        Inc. WiFi & Air
+                        Free WiFi & Air
                       </span>
-                      <div className="text-[10px] text-[#755C51] mt-1">
-                        Deposit: {formatRupiah(singleRoom.deposit)}
+                      <div className="text-[10px] text-[#E0707D] font-bold mt-1">
+                        Tanpa Deposit (Rp 0)
                       </div>
                     </div>
                   </div>
@@ -416,7 +416,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                   { key: '1', label: '1 Bulan', note: 'Bulanan' },
                   { key: '3', label: '3 Bulan', note: 'Hemat 150rb' },
                   { key: '6', label: '1 Semester', note: 'Rekomendasi PU' },
-                  { key: '12', label: '1 Tahun', note: 'Hemat s.d 1.7jt' }
+                  { key: '12', label: '1 Tahun', note: 'Hemat s.d 1.5jt' }
                 ].map((item) => (
                   <button
                     key={item.key}
@@ -463,13 +463,13 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
 
               <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="text-[11px] text-[#755C51]">
-                  Sudah termasuk: Air, Iuran Sampah & WiFi Unlimited.
+                  ✓ Free WiFi & Air Bersih • ✓ Tanpa Uang Deposit • Listrik Token Mandiri
                 </div>
                 <button
                   onClick={() => {
                     onSelectRoomForBooking(singleRoom, calcResult.label, calcResult.total);
                   }}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#E0707D] hover:bg-[#CF5D6B] text-white text-xs font-bold transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#E0707D] hover:bg-[#CF5D6B] text-white text-xs font-bold transition-all shadow-xs"
                 >
                   <span>Pilih Paket & Chat WA</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -484,17 +484,17 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
         <div id="fasilitas" className="pt-4 mb-14 scroll-mt-24">
           <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#5E4339] bg-[#FAF3E8] px-3 py-1 rounded-full border border-[#EBDAC8]">
-              Fasilitas Seluruh Area
+              Fasilitas Kamar & Layanan
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#423028] mt-2">
               Kelengkapan di {kos.name}
             </h3>
             <p className="text-xs sm:text-sm text-[#755C51] mt-1.5">
-              Dirancang untuk kenyamanan istirahat dan efisiensi belajar mahasiswa President University.
+              Fokus pada kenyamanan kamar pribadi, privasi maksimal, bebas antri fasilitas, dan keamanan 24 jam.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {kos.facilities.map((group, idx) => (
               <div
                 key={idx}
@@ -502,7 +502,7 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
               >
                 <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-[#F1E4D6]">
                   <div className="w-9 h-9 rounded-xl bg-[#FAF3E8] text-[#E0707D] flex items-center justify-center font-bold shrink-0">
-                    {idx === 0 ? <Bed className="w-4 h-4" /> : idx === 1 ? <Coffee className="w-4 h-4" /> : <ShieldCheck className="w-4 h-4" />}
+                    {idx === 0 ? <Bed className="w-4 h-4" /> : <ShieldCheck className="w-4 h-4" />}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-[#423028]">
                     {group.category}
@@ -526,6 +526,17 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Info Banner: Ketentuan Kos (No Fasilitas Bersama & No Parkir) */}
+          <div className="mt-6 p-4.5 sm:p-5 rounded-2xl bg-[#FAF3E8] border border-[#EBDAC8] flex items-start gap-3.5 text-xs text-[#5E4339]">
+            <div className="w-8 h-8 rounded-xl bg-white border border-[#EBDAC8] flex items-center justify-center text-[#E0707D] shrink-0 font-bold shadow-2xs">
+              <Info className="w-4 h-4" />
+            </div>
+            <div className="leading-relaxed">
+              <strong className="text-[#423028] block mb-1 text-xs sm:text-sm">Catatan Penting Hunian Kos ABS:</strong>
+              Kos ABS mengutamakan kenyamanan & privasi kamar tidur pribadi dengan kamar mandi dalam. Kos ini <strong>tidak menyediakan fasilitas bersama</strong> (tanpa dapur/kulkas bersama) dan <strong>tidak menyediakan area parkir kendaraan</strong>. Sangat ideal untuk mahasiswa yang menginginkan lingkungan kos yang tenang, hening, bersih, bebas antri fasilitas, dan dekat dengan kampus President University (±12 menit jalan santai / naik transportasi online).
+            </div>
           </div>
         </div>
 
