@@ -14,6 +14,7 @@ export interface RoomType {
   deposit: number;
   availableRooms: number;
   size: string;
+  bathroomSize?: string;
   bedType: string;
   ac: boolean;
   bathroomInside: boolean;
@@ -185,7 +186,8 @@ export const kosPartners: KosItem[] = [
         priceYearly: 16500000,   // hemat 1.5jt
         deposit: 0,              // Free deposit / gausah deposit
         availableRooms: 3,
-        size: "3.5 x 4 Meter",
+        size: "3 x 3 Meter",
+        bathroomSize: "1.2 x 3 Meter",
         bedType: "Kasur Royal Foam Single (100 x 200)",
         ac: true,
         bathroomInside: true,
@@ -197,7 +199,8 @@ export const kosPartners: KosItem[] = [
           "/assets/rooms/meja-belajar.jpg"
         ],
         keyFeatures: [
-          "Kamar Mandi Dalam (Shower + Kloset Duduk + Bidet Spray)",
+          "Ukuran Kamar 3 x 3 Meter (Tertata Rapi & Full-Furnished)",
+          "Kamar Mandi Dalam Luas 1.2 x 3 Meter (Shower + Kloset Duduk)",
           "AC Dingin 0.5 PK Terawat & Hemat Listrik",
           "Free WiFi Fiber Optic Unlimited High-Speed",
           "Free Air Bersih & Iuran Sampah Lingkungan",
@@ -209,7 +212,8 @@ export const kosPartners: KosItem[] = [
           "Privasi Terjaga (Tanpa Fasilitas Bersama)"
         ],
         roomFacilities: [
-          "Kamar Mandi Dalam Pribadi (Shower, Jet Washer/Bidet Spray & Kloset Duduk)",
+          "Kamar Mandi Dalam Luas 1.2 x 3 Meter (Shower, Jet Washer/Bidet Spray & Kloset Duduk)",
+          "Ukuran Kamar Tidur 3 x 3 Meter Nyaman & Siap Huni",
           "Pendingin Ruangan (AC Split Dingin)",
           "Free Akses WiFi Fiber Optic Unlimited",
           "Free Biaya Pemakaian Air Bersih",

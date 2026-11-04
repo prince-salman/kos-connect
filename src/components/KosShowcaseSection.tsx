@@ -38,8 +38,8 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
 
   // Photo titles & captions
   const photoDetails = [
-    { title: 'Kamar Utama & Pendingin AC', desc: 'AC Sharp split dingin, jendela dengan gorden abu-abu, stopkontak, dan meja belajar' },
-    { title: 'Fasilitas Kamar Mandi Dalam', desc: 'Shower air bersih lancar, jet washer bidet, dan kloset duduk bersih di dalam kamar' },
+    { title: 'Kamar Utama (3 x 3 m) & Pendingin AC', desc: 'Ukuran 3 x 3 m dengan AC Sharp dingin, jendela bergorden abu-abu, meja belajar & stopkontak' },
+    { title: 'Kamar Mandi Dalam Luas (1.2 x 3 m)', desc: 'Ukuran lega 1.2 x 3 meter dilengkapi shower lancar, jet washer bidet, dan kloset duduk' },
     { title: 'Kasur Busa Royal Foam & Dipan', desc: 'Kasur empuk nyaman dengan dipan kayu minimalis dan sandaran kepala' },
     { title: 'Lemari Pakaian 2 Pintu Luas', desc: 'Dilengkapi rak bertingkat, tiang gantungan kokoh, dan laci berpengunci' },
     { title: 'Meja Belajar Mahasiswa & Kursi', desc: 'Meja kerja/belajar ergonomis dengan laci penyimpanan dan kursi putih' }
@@ -297,12 +297,16 @@ export const KosShowcaseSection: React.FC<KosShowcaseProps> = ({ onSelectRoomFor
                 </div>
 
                 {/* Key Specs Pills */}
-                <div className="grid grid-cols-2 gap-2 mt-4 text-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-xs">
                   <div className="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#EFE4D6]">
                     <span className="text-[#755C51] block text-[10px]">Ukuran Kamar:</span>
                     <strong className="text-[#423028] font-bold">{singleRoom.size}</strong>
                   </div>
                   <div className="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#EFE4D6]">
+                    <span className="text-[#755C51] block text-[10px]">K. Mandi Dalam:</span>
+                    <strong className="text-[#423028] font-bold">{singleRoom.bathroomSize || '1.2 x 3 m'}</strong>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#EFE4D6] col-span-2 sm:col-span-1">
                     <span className="text-[#755C51] block text-[10px]">Tipe Kasur:</span>
                     <strong className="text-[#423028] font-bold">Royal Foam + Dipan</strong>
                   </div>
